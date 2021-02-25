@@ -22,6 +22,14 @@ int main()
         v.push_back(generate(120));
     }
 
+    while(v.size() != 500)
+    {
+        for(int i = 0; i < 20; i++)
+            generate(120);
+        v.push_back(generate(60));
+    }
+
+
     for(auto& str : v)
     {
         fmt::printf(fmt::format(FMT_STRING("{:s}\n"), str));
