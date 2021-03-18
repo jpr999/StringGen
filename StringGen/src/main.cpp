@@ -2,7 +2,8 @@
 #include <chrono>
 #include <experimental/source_location>
 #include <iostream>
-#include <list>
+#include <map>
+#include <vector>
 #include <random>
 #include <string>
 
@@ -13,20 +14,34 @@ std::string generate(size_t max_length);
 
 int main()
 {
+    std::map<std::string,std::string> m;
     std::vector<std::string> v;
 
-    while(v.size() != 500)
+    while(m.size() != 2000)
     {
-        for(int i = 0; i < 20; i++)
-            generate(120);
-        v.push_back(generate(120));
+        std::string key(generate(50));
+        m.insert(std::pair(key,generate(3000)));
+        v.push_back(key);
+
     }
 
-    for(auto& str : v)
+    for(auto& x : m)
     {
-        fmt::printf(fmt::format(FMT_STRING("{:s}\n"), str));
+        fmt::printf(fmt::format(FMT_STRING("key:{:s}\n"),x.first));
     }
     std::cout << std::endl;
+    fmt::printf(fmt::format(FMT_STRING("size:{:d}\n"),m.size()));
+
+    for(const auto& s : v)
+    {
+        const auto p = m.find(s);
+        if(p != m.end());
+        {
+            fmt::printf(fmt::format(FMT_STRING("key:{:s}\n"),p->first));
+
+        }
+
+    }
 
     return 0;
 }
