@@ -2,7 +2,7 @@
 #include <chrono>
 #include <experimental/source_location>
 #include <iostream>
-#include <map>
+#include <unordered_map>
 #include <vector>
 #include <random>
 #include <string>
@@ -16,11 +16,11 @@ std::string generate(size_t max_length);
 
 int main()
 {
-    std::map<std::string,std::string> m;
+    std::unordered_map<std::string,std::string> m;
     std::vector<std::string> v;
 
     auto start = std::chrono::high_resolution_clock::now();
-    while(m.size() != 10000)
+    while(m.size() != 100000)
     {
         std::string key(generate(50));
         m.insert(std::pair(key,generate(3000)));
@@ -50,6 +50,15 @@ int main()
     auto end1 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff1 = end1-start1;
     fmt::print("time to search map:{}\n",diff1.count());
+
+
+    auto start2 = std::chrono::high_resolution_clock::now();
+    auto m1 = m;
+    auto end2 = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> diff2 = end2-start2;
+    fmt::print("Map copy:{}\n",diff2.count());
+
+
 
     return 0;
 }
