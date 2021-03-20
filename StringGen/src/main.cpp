@@ -55,7 +55,9 @@ bool gen_data(size_t i)
 
 int main()
 {
-    size_t x = 40000;
-    gen_data(x); 
+    size_t y = 40000;
+    gen_data(y);
+    gen_data(y * 5); 
+    
     return 0;
 }
