@@ -2,63 +2,60 @@
 #include <chrono>
 #include <experimental/source_location>
 #include <iostream>
-#include <unordered_map>
-#include <vector>
 #include <random>
 #include <string>
+#include <unordered_map>
+#include <vector>
 
-#include <fmt/printf.h>
-#include <fmt/chrono.h>
-
+#include "include/utils.h"
 #include "include/inc.h"
 
 std::string generate(size_t max_length);
 
-int main()
+bool gen_data(size_t i);
+
+bool gen_data(size_t i)
 {
-    std::unordered_map<std::string,std::string> m;
+    std::unordered_map<std::string, std::string> m;
     std::vector<std::string> v;
 
-    auto start = std::chrono::high_resolution_clock::now();
-    while(m.size() != 100000)
     {
-        std::string key(generate(50));
-        m.insert(std::pair(key,generate(3000)));
-        v.push_back(key);
-
-    }
-    auto end = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> diff = end-start;
-    fmt::print("time to fill map:{}\n",diff.count());
-    
-    
-    fmt::printf(fmt::format(FMT_STRING("size:{:d}\n"),m.size()));
-
-    auto start1 = std::chrono::high_resolution_clock::now();
-    for(const auto& s : v)
-    {
-        const auto p = m.find(s);
-        if(p != m.end());
+        t_exec a("time to fill map:{}\n");
+        while(m.size() != i)
         {
-            if(p->first.length() != 50)            
-                fmt::printf(fmt::format(FMT_STRING("key:{:s}\n"),p->first));
-
+            std::string key(generate(50));
+            m.insert(std::pair(key, generate(3000)));
+            v.push_back(key);
         }
-
     }
 
-    auto end1 = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> diff1 = end1-start1;
-    fmt::print("time to search map:{}\n",diff1.count());
+    fmt::printf(fmt::format(FMT_STRING("size:{:d}\n"), m.size()));
 
+    {
+        t_exec b("time to search map:{}\n");
+        for(const auto& s : v)
+        {
+            const auto p = m.find(s);
+            if(p != m.end())
+                ;
+            {
+                if(p->first.length() != 50)
+                    fmt::printf(fmt::format(FMT_STRING("key:{:s}\n"), p->first));
+            }
+        }
+    }
 
-    auto start2 = std::chrono::high_resolution_clock::now();
-    auto m1 = m;
-    auto end2 = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> diff2 = end2-start2;
-    fmt::print("Map copy:{}\n",diff2.count());
+    {
+        t_exec c("map copy:{}\n");
+        auto m1 = m;
+        fmt::printf(fmt::format(FMT_STRING("size:{:d}\n"), m1.size()));
+    }
+    return true; 
+}
 
-
-
+int main()
+{
+    size_t x = 40000;
+    gen_data(x); 
     return 0;
 }
