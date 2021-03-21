@@ -57,7 +57,7 @@ int main()
 {
     size_t y = 2000;
     t_exec z("Total Time :{}");
-    for(int i  = 0;i < 20;i++)
+    for(int i  = 0;i < 40;i++)
         gen_data(y);
         
     return 0;
