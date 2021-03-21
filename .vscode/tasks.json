@@ -39,6 +39,24 @@
                 "cmake config debug"
             ],
             "group": "build"
+        },
+        {
+            "label": "make release",
+            "type": "shell",
+            "command": "ninja",
+            "options": {
+                "cwd": "${workspaceRoot}/build"
+            },
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": "absolute"
+            },
+            "dependsOn": [
+                "cmake config release"
+            ],
+            "group": "build"
         }
+
+
     ]
 }

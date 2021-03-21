@@ -55,9 +55,10 @@ bool gen_data(size_t i)
 
 int main()
 {
-    size_t y = 40000;
-    gen_data(y);
-    gen_data(y * 5); 
-    
+    size_t y = 2000;
+    t_exec z("Total Time :{}");
+    for(int i  = 0;i < 20;i++)
+        gen_data(y);
+        
     return 0;
 }
