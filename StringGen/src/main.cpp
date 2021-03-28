@@ -10,9 +10,11 @@
 #include "include/utils.h"
 #include "include/inc.h"
 
-std::string generate(size_t max_length);
+//std::string generate(size_t max_length);
 
 bool gen_data(size_t i);
+
+
 
 bool gen_data(size_t i)
 {
