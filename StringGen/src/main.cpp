@@ -54,10 +54,11 @@ bool gen_data(size_t i)
 int main()
 {
 
-    size_t y = 50000;
+    const size_t y = 50000;
     t_exec z("Total Time :{}");
     for(int i  = 0;i < 10;i++)
         gen_data(y);
 
+    auto i =  utf8_strlen("Hello world");   
     return 0;
 } 
