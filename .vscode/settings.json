@@ -21,6 +21,4 @@
             }
         ]
     },
-    "gtest-adapter.debugConfig": ["(gdb) Launch Testing"],
-    "gtest-adapter.supportLocation": true
 }

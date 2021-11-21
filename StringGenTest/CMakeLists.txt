@@ -11,7 +11,6 @@ externalproject_add(googletest
     CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
 )
 
-include(CTest)
 enable_testing()
 
 include_directories(${EXTERNAL_INSTALL_LOCATION}/include ../StringGenLib)
