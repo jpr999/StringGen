@@ -1,4 +1,3 @@
-cmake_minimum_required(VERSION 3.15.0)
 project(StringGen VERSION 0.1.0)
 
 find_package(fmt)
