@@ -15,8 +15,6 @@ if( NOT CMAKE_BUILD_TYPE )
    set( CMAKE_BUILD_TYPE Debug ... FORCE )
 endif() 
 
-include(CTest)
-enable_testing()
 
 if(CMAKE_BUILD_TYPE MATCHES Debug)
    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../Output/Debug/lib)
@@ -38,7 +36,7 @@ endif()
 
 add_subdirectory(StringGenLib)
 add_subdirectory(StringGen)
-
+add_subdirectory(StringGenTest)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

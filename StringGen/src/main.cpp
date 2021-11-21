@@ -6,7 +6,7 @@
 #include <unordered_map>
 #include <vector>
 #include "include/utils.h"
-#include "include/inc.h"
+#include "include/stringgenlib.h"
 
 bool gen_data(size_t i);
 

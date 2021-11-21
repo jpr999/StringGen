@@ -26,16 +26,16 @@
             ]
         },
         {
-            "name": "(lldb) Launch",
+            "name": "(gdb) Launch Testing",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/debug/bin/StringTest",
+            "program": "${workspaceFolder}/Output/Debug/bin/StringGenTest",
             "args": [],
             "stopAtEntry": true,
-            "cwd": "${workspaceFolder}/debug/bin",
+            "cwd": "${workspaceFolder}/Output/Debug/bin",
             "environment": [],
             "externalConsole": false,
-            "MIMode": "lldb",
+            "MIMode": "gdb",
             "preLaunchTask": "make",
             "setupCommands": [
                 {

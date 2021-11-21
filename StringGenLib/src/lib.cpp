@@ -4,10 +4,12 @@
 #include <list>
 #include <random>
 #include <string>
-#include "../include/inc.h"
+#include "../include/stringgenlib.h"
 
 std::string generate(size_t max_length)
 {
+    if(max_length > 20000 )
+        return {};  
     std::string possible_characters("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
 
     auto seed = std::chrono::high_resolution_clock::now().time_since_epoch().count();
