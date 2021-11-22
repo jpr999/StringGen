@@ -38,3 +38,8 @@ TEST(StringGenTest, Stringgen15)
     EXPECT_EQ(15, generate(15).length());
 }    
 
+TEST(StringLenTest, StringLen_cchar)
+{
+    EXPECT_EQ(10, utf8_strlen("Hello World"));
+}    
+

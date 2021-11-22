@@ -36,7 +36,7 @@ size_t utf8_strlen(const std::string& str)
     for(q = 0, i = 0, ix = str.length(); i < ix; i++, q++)
     {
         c = (unsigned char)str[i];
-        if(c >= 0 && c <= 127)
+        if(c <= 127)
         {
             i += 0;
         }
